@@ -1,0 +1,85 @@
+body {
+  background-image: linear-gradient(#182033, #304360);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+@font-face {
+  font-family: lato1;
+  src: local("Oxygen"), url(./fonts/Zoram/ZoramRegular.ttf) format("opentype");
+}
+
+.title {
+  margin-top: 2rem;
+  font-family: "lato1", "arial", sans-serif;
+  color: #cbb68f;
+  font-size: 47px;
+}
+.menuNormal > li {
+  font-family: "lato1", "arial", sans-serif;
+  color: white;
+  font-size: 19px;
+  text-align: left;
+}
+
+.js-plotly-plot .plotly svg a {
+  fill: rgb(255 255 255) !important;
+  /* fill:#62518E !important; */
+}
+.div1 {
+  padding-top: 6rem;
+  margin-bottom: 4rem;
+  display: none;
+}
+
+.div2 {
+  margin-bottom: 1rem;
+  display: none;
+}
+.div3 {
+  padding-top: 4rem;
+  display: none;
+}
+.div4 {
+  padding-top: 2rem;
+  display: none;
+}
+.padding5rem {
+}
+.padding5right {
+  padding-right: 5rem !important;
+}
+
+.red {
+  /* background-color: red; */
+}
+.black {
+  background-color: black;
+}
+.green {
+  background-color: green;
+}
+.blue {
+  background-color: blue;
+}
+
+.luna {
+  width: 200px;
+  height: 100px; /* as the half of the width */
+  background-color: gold;
+  border-top-left-radius: 110px; /* 100px of height + 10px of border */
+  border-top-right-radius: 110px; /* 100px of height + 10px of border */
+  border: 10px solid gray;
+  border-bottom: 0;
+}
+.main-svg {
+  background-color: transparent !important;
+}
+
+.imgCenter {
+  width: 83px;
+  position: absolute;
+  top: 207px;
+  left: 164px;
+}

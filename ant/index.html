@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recurso de Bienestar y Autosuficiencia</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src='https://cdn.plot.ly/plotly-2.4.2.min.js'></script>
+</head>
+
+<body>
+    <center>
+        <h1 class="title">Recurso de Bienestar y Autosuficiencia</h1>
+    </center>
+    <center>
+        <div class="row col-md-6 padding5rem">
+
+
+
+            <div class="col-md-3">
+                <div class="div1 col-md-12 ">
+                    <ul class="menuNormal">
+                        <li>Almacenes del Obispo</li>
+                        <li>Sistema de Supermercados</li>
+                        <li>Proyectos Humanitarios</li>
+                    </ul>
+                </div>
+
+
+
+                <div class="div2 col-md-10">
+                    <ul class="menuNormal">
+                        <li>Finanzas Personales</li>
+                        <li>Almacenamientos en el Hogar</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="col-md-5">
+                <div id='myDiv'>
+                  <img class="imgCenter" src="./circulo_centro.png" alt="">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="div3 col-md-10">
+                    <ul class="menuNormal">
+                        <li>Grupos de Autosuficiencia</li>
+                        <li>Centros de Autosuficiencia de Estaca</li>
+                        <li>Fondo Perpectuo</li>
+                        <li>Pathway</li>
+                        <li>EnglishConnect</li>
+                    </ul>
+                </div>
+
+
+                <div class="div4 col-md-12">
+                    <ul class="menuNormal">
+                        <li>Servicios para la Familia</li>
+                        <li>Recuperación de Adicciones</li>
+                        <li>Resiliencia Emocional</li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+    </center>
+</body>
+<script>
+    var data = [{
+        type: "sunburst",
+        ids: [
+            "Consejo de Barrio", "Obispo", "Ministración",
+            "Ley del Ayuno"
+            , "<a>Educación <br> y Empleo</a>",
+            "<a>Necesidades <br> Inmediatas</a>",
+            "<a>Preparación</a>",
+            "<a>Salud <br> Emocional</a>",
+        ],
+        labels: [
+            "Consejo de Barrio", "Obispo", "Ministración", "Ley del Ayuno",
+            "<a>Educación <br> y Empleo</a>",
+            "<a>Necesidades <br> Inmediatas</a>",
+            "<a>Preparación</a>",
+            "<a>Salud <br> Emocional</a>"
+        ],
+        parents: [
+            ".",
+            ".",
+            ".",
+            ".",
+            "Consejo de Barrio", "Obispo", "Ministración", "Ley del Ayuno",
+            "<a>Educación <br> y Empleo</a>",
+            "<a>Necesidades <br> Inmediatas</a>",
+            "<a>Preparación</a>"
+            , "<a>Salud <br> Emocional</a>"
+        ],
+        outsidetextfont: { size: 23, color: "#316880" },
+
+        marker: { line: { width: 2 } },
+    }];
+
+    var layout = {
+        margin: { l: 1, r: 1, b: 1, t: 1 },
+        sunburstcolorway: ["#00B4D3", "#EA5171", "#92C83E", "#F28E41"],
+        width: 380,
+        height: 500,
+
+    };
+
+
+    Plotly.newPlot('myDiv', data, layout);
+    $(document).ready(function () {
+        $(".slicetext").click(function () {
+            var texto = $(this).data()
+            textoFinal = texto.unformatted
+            if (textoFinal == "<a>Necesidades <br> Inmediatas</a>") {
+                $('.div1').show("slow")
+            }
+            else if (textoFinal == "<a>Preparación</a>") {
+                $('.div2').show("slow")
+            }
+            else if (textoFinal == "<a>Salud <br> Emocional</a>") {
+                $('.div4').show("slow")
+            }
+            else if (textoFinal == "<a>Educación <br> y Empleo</a>") {
+                $('.div3').show("slow")
+            }
+        });
+    });
+
+
+
+</script>
+
+</html>

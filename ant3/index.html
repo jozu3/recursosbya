@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recurso de Bienestar y Autosuficiencia</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src='https://cdn.plot.ly/plotly-2.4.2.min.js'></script>
+</head>
+
+<body>
+
+
+    <section id="proyectos" >
+        <span class="aspaCerrar" onclick="cerrarModal()">x</span> 
+      <center>
+          <div class="centricoLinks1">
+            <H1 class="TituloModal"></H1>
+        <li class="h3Link"><a href="index.html">Almacenes del Obispo</a></li>
+        <li class="h3Link"><a href="index.html">Sistema de Supermercados</a></li>
+        <li class="h3Link"><a href="index.html">Proyectos Humanitarios</a></li>
+       </div>
+          <div class="centricoLinks2">
+            <H1 class="TituloModal"></H1>
+        <li class="h3Link"><a href="index.html">Finanzas Personales</a></li>
+        <li class="h3Link"><a href="index.html">Almacenamientos en el Hogar</a></li>
+
+       </div>
+          <div class="centricoLinks3">
+            <H1 class="TituloModal"></H1>
+            <li  class="h3Link"><a href="index.html">Grupos de Autosuficiencia</a></li>
+            <li  class="h3Link"><a href="index.html">Centros de Autosuficiencia de Estaca</a></li>
+            <li  class="h3Link"><a href="index.html">Fondo Perpectuo</a></li>
+            <li  class="h3Link"><a href="index.html">Pathway</a></li>
+            <li  class="h3Link"><a href="index.html">EnglishConnect</a></li>
+       </div>
+          <div class="centricoLinks4">
+            <H1 class="TituloModal"></H1>
+        <li class="h3Link"><a href="index.html">Servicios para la Familia</a></li>
+        <li class="h3Link"><a href="index.html">Recuperación de Adicciones</a></li>
+        <li class="h3Link"><a href="index.html">Resiliencia Emocional</a></li>
+       </div>
+    </center>
+        </section>
+
+    <center>
+        <h1 class="title">Recurso de Bienestar y Autosuficiencia</h1>
+    </center>
+    <center>
+        <div class="row col-sm-12
+        col-md-12 col-lg-6 col-xl-6">
+
+
+            <div class="col-md-12">
+                <div id='myDiv'>
+                    <center>
+                  <img class="imgCenter" src="./circulo_centro.png" alt="">
+                </center>
+                </div>
+            </div>
+    
+
+        </div>
+
+
+
+    </center>
+</body>
+<script>
+    var data = [{
+        type: "sunburst",
+        ids: [
+            "Consejo de Barrio", "Obispo", "Ministración",
+            "Ley del Ayuno"
+            , "<a>Educación <br> y Empleo</a>",
+            "<a>Necesidades <br> Inmediatas</a>",
+            "<a>Preparación</a>",
+            "<a>Salud <br> Emocional</a>",
+        ],
+        labels: [
+            "Consejo de Barrio", "Obispo", "Ministración", "Ley del Ayuno",
+            "<a>Educación <br> y Empleo</a>",
+            "<a>Necesidades <br> Inmediatas</a>",
+            "<a>Preparación</a>",
+            "<a>Salud <br> Emocional</a>"
+        ],
+        parents: [
+            ".",
+            ".",
+            ".",
+            ".",
+            "Consejo de Barrio", "Obispo", "Ministración", "Ley del Ayuno",
+            "<a>Educación <br> y Empleo</a>",
+            "<a>Necesidades <br> Inmediatas</a>",
+            "<a>Preparación</a>"
+            , "<a>Salud <br> Emocional</a>"
+        ],
+        outsidetextfont: { size: 23, color: "#316880" },
+
+        marker: { line: { width: 2 } },
+    }];
+
+    var layout = {
+        margin: { l: 1, r: 1, b: 1, t: 1 },
+        sunburstcolorway: ["#00B4D3", "#EA5171", "#92C83E", "#F28E41"],
+        width: 480,
+        height: 580,
+
+    };
+
+
+    Plotly.newPlot('myDiv', data, layout);
+    $(document).ready(function () {
+        $(".slicetext").click(function () {
+            var texto = $(this).data()
+            textoFinal = texto.unformatted
+            if (textoFinal == "<a>Necesidades <br> Inmediatas</a>") {
+                $('.centricoLinks1').show("slow")
+                $('.centricoLinks2').hide()
+                $('.centricoLinks3').hide()
+                $('.centricoLinks4').hide()
+                $('#proyectos').addClass("open")
+                $('#proyectos').addClass("red")
+                $('.aspaCerrar').show()
+                $('.TituloModal').text("NECESIDADES IMMEDIATAS")
+                
+            }
+            else if (textoFinal == "<a>Preparación</a>") {
+                $('.centricoLinks2').show("slow")
+                $('.centricoLinks1').hide()
+                $('.centricoLinks3').hide()
+                $('.centricoLinks4').hide()
+                $('#proyectos').addClass("open")
+                $('#proyectos').addClass("verde")
+                $('.aspaCerrar').show()
+                $('.TituloModal').text("PREPARACIÓN")
+            }
+            else if (textoFinal == "<a>Salud <br> Emocional</a>") {
+                $('.centricoLinks4').show("slow")
+                $('.centricoLinks2').hide()
+                $('.centricoLinks3').hide()
+                $('.centricoLinks1').hide()
+                $('#proyectos').addClass("open")
+                $('#proyectos').addClass("amarillo")
+                $('.aspaCerrar').show()
+                $('.TituloModal').text("SALUD EMOCIONAL")
+            }
+            else if (textoFinal == "<a>Educación <br> y Empleo</a>") {
+                $('.centricoLinks3').show("slow")
+                $('.centricoLinks2').hide()
+                $('.centricoLinks1').hide()
+                $('.centricoLinks4').hide()
+                $('#proyectos').addClass("open")
+                $('#proyectos').addClass("azul")
+                $('.aspaCerrar').show()
+                $('.TituloModal').text("EDUCACIÓN Y EMPLEO")
+            }
+        });
+    });
+
+    function cerrarModal(){
+        $('#proyectos').removeClass("open")
+        $('#proyectos').removeClass("verde")
+        $('#proyectos').removeClass("red")
+        $('#proyectos').removeClass("azul")
+        $('#proyectos').removeClass("amarrillo")
+        $('.aspaCerrar').hide("slow")
+    }
+
+</script>
+
+</html>
